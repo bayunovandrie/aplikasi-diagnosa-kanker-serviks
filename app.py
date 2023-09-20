@@ -1,7 +1,7 @@
 import screen_brightness_control as sbc
 from math import hypot
 import mediapipe as mp
-from flask import Flask, render_template, Response, request
+from flask import Flask, render_template, Response, request, make_response
 import cv2
 import datetime
 import time
@@ -9,6 +9,7 @@ import os
 import sys
 import numpy as np
 from flask_mysqldb import MySQL
+import pdfkit
 
 
 from threading import Thread
@@ -176,6 +177,25 @@ def baca_data():
     cur.close()
 
     return render_template('test.html', data_pasien=data_pasien)
+
+
+@app.route('/generate_pdf', methods=['GET'])
+def generate_pdf():
+    pdfkit_config = pdfkit.configuration(
+        wkhtmltopdf='C:/Program Files/wkhtmltopdf/bin/wkhtmltopdf.exe')
+
+    pdfkit_options = {
+        'disable-external-links': True
+    }
+
+    html = render_template("akhir.html")
+    pdf = pdfkit.from_string(
+        html, False, configuration=pdfkit_config,  options=pdfkit_options)
+    response = make_response(pdf)
+    response.headers["Content-Type"] = "application/pdf"
+    response.headers["Content-Disposition"] = "inline;filename=output.pdf"
+
+    return response
 
 
 if __name__ == '__main__':
