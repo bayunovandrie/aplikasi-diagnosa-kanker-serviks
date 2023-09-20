@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aplikasi Diagnosa</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css1/bootstrap.min.css') }}">
+        <style>
+            body
+            {
+                background-image: url('static/background/medis.jpg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mt-3 text-center ">
+                    <h1>Selamat Datang Di RSUD Pamulang</h1>
+                    <img src="../static/images/rumah_sakit-removebg-preview.png" alt="">
+                </div>
+            </div>
+            <form action="/lihat_data" method="post">
+                <div class="row">
+                    <div class="col">
+                        <button class="btn btn-success" type="submit">Lihat Data Pasien</button>
+                    </div>
+                </div>
+            </form>
+
+            <form action="/kirim" method="post">
+                <div class="row mt-5 mb-5">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-header text-center">
+                                <h4>Silahkan Mengisi Form  Data Pasien</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Nama Pasien</label>
+                                            <input type="text" class="form-control" name="nama_pasien" placeholder="Masukan Nama Pasien">
+                                        </div>
+                                    </div>
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Umur</label>
+                                            <input type="text" class="form-control" name="umur_pasien" placeholder="Masukan Usia Pasien">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mb-3">
+                                    <div class="col-6">
+                                        <div class="form-group">
+                                            <label class="form-label">No Pasien</label>
+                                            <input type="text" class="form-control" name="no_pasien" placeholder="Masukan Alamat Pasien">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn btn-primary" type="submit" >Simpan</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            
+            
+        </div>
+        <script src="{{ url_for('static', filename='dist/js1/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='dist/js1/bootstrap.min.js') }}"></script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aplikasi Diagnosa</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css1/bootstrap.min.css') }}">  
+        <style>
+            body
+            {
+                background-image: url('static/background/medis.jpg');
+                background-position: center;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 mt-3 text-center ">
+                    <img src="../static/images/rumah_sakit-removebg-preview.png" width="200">
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col text-center">
+                    <div class="card">
+                        <div class="card-header">
+                            <h4>Daftar Pasien</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <table class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Nama Pasien</th>
+                                <th>Usia Pasien</th>
+                                <th>Alamat</th>
+                                <th>No Hp</th>
+                                <th>Keluhan</th>
+                                <th>Foto</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for pasien in data_pasien %}
+                            <tr>
+                                <td>{{ pasien.1 }}</td>
+                                <td>{{ pasien.2 }}</td>
+                                <td>{{ pasien.3 }}</td>
+                                <td>{{ pasien.4 }}</td>
+                                <td>{{ pasien.5 }}</td>
+                                <td>
+                                    <img src="{{ pasien.6 }}" width="100">
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                        
+        
+                    </table>
+                    <form action="/">
+                        <button class="btn btn-danger" type="submit">
+                            Back
+                        </button>
+                    </form>
+                </div>
+            </div>
+            
+
+            
+        </div>
+        <script src="{{ url_for('static', filename='dist/js1/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static', filename='dist/js1/bootstrap.min.js') }}"></script> 
+    </body>
+</html>

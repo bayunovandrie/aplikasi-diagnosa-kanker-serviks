@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Hasil</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css1/bootstrap.min.css') }}"">
+        <style>
+            body
+            {
+                background-image: url('static/background/medis.jpg');
+                background-position: center;
+                background-size: cover;
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col mt-2 mb-2" style="display: flex; justify-content: center;">
+                        <h1>Kamera Kolposkopi</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-8">
+                        <img src="{{ path }}" height="496" width="900" style="border-radius: 10px;">
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card ms-3 me-3" style="background-color: #E3CA3E;  border-radius: 10px">
+                            <div class="card-title" style="display: flex; justify-content: center; color: white ;">
+                                <h5 style="font-weight: bold;">Identitas Pasien</h5>
+                            </div>
+                            <div class="card-body ms-3 me-3 mb-3" style="background-color: white; border-radius: 9px;">
+                                <p style="font-weight: bold;" >Nama<span style="margin-left:80px;">: {{ nama_pasien }}</span></p>
+                                <p style="font-weight: bold;" >Umur<span style="margin-left:82px;">: {{ umur_pasien }} Tahun</span></p>
+                                <p style="font-weight: bold;" >Nomor Pasien<span style="margin-left:19px;">: {{ no_pasien }}</span></p>
+                            </div>
+                        </div>
+
+                        <div class="card ms-3 me-3 mt-5" style="background-color: #E3CA3E;  border-radius: 10px; height: auto;">
+                            <div class="card-title" style="display: flex; justify-content: center; color: white ;">
+                                <h5 style="font-weight: bold;">Diagnosa Pasien</h5>
+                            </div>
+                            <div class="card-body ms-3 me-3 mb-3" style="background-color: white; border-radius: 9px;">
+                                <p>{{ diagnosa }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col d-flex justify-content-end me-5">
+                        <button class="btn btn-success" style="color: white; font-weight: bold;" >Download</button>
+                    </div>
+                </div>
+                
+                
+
+            </div>
+        </section>
+    <script src="{{ url_for('static', filename='dist/js1/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js1/bootstrap.min.js') }}"></script> 
+    </body>
+</html>

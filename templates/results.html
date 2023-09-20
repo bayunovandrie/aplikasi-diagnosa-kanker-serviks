@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tampilan Data</title>
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css1/bootstrap.min.css') }}">
+        <style>
+            body
+            {
+                background-image: url('static/background/medis.jpg')
+            }
+        </style>
+    </head>
+    <body>
+        <section>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col mt-2 mb-2" style="display: flex; justify-content: center;">
+                        <h1>Diagnosa Pasien</h1>
+                    </div>
+                </div>
+                <div class="row pe-5">
+                    <div class="col-md-7 ps-5">
+                        <img src="{{ path }}" width="700" style="border-radius: 10px;">
+                    </div>
+                    <div class="col-md-5">
+                        <div class="card ms-3 me-3" style="background-color: #E3CA3E;  border-radius: 10px">
+                            <div class="card-title" style="display: flex; justify-content: center; color: white ;">
+                                <h5 style="font-weight: bold;"></h5>
+                            </div>
+                            <div class="card-body ms-3 me-3 mb-3" style="background-color: white; border-radius: 9px;">
+                                <form action="/simpan" method="post">
+                                    <div class="form-group">
+                                        <label class="form-label">Diagnosa Pasien</label>
+                                        <textarea class="form-control" name="diagnosa" cols="30" rows="10"></textarea>
+                                        <input type="hidden" name="path" value="{{ path }}">
+                                        <input type="hidden" name="nama_pasien" value="{{ nama_pasien }}">
+                                        <input type="hidden" name="umur_pasien" value="{{ umur_pasien }}">
+                                        <input type="hidden" name="no_pasien" value="{{ no_pasien }}">
+
+                                        <button class="btn btn-success mt-3" type="submit">Simpan Diagnosa</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    <script src="{{ url_for('static', filename='dist/js1/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='dist/js1/bootstrap.min.js') }}"></script> 
+    </body>
+</html>
