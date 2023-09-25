@@ -2,7 +2,8 @@
 <html>
     <head>
         <title>Hasil</title>
-        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css1/bootstrap.min.css') }}"">
+        <link rel="stylesheet" href="{{ url_for('static', filename='dist/css1/bootstrap.min.css') }}">
+        
         <style>
             body
             {
@@ -11,48 +12,105 @@
                 background-size: cover;
             }
         </style>
+
+        <style media="print" >
+            /* Atur tampilan elemen-elemen lainnya jika diperlukan */
+            #invoice {
+                    /* Atur CSS untuk elemen #invoice di sini */
+                    background-image: url('static/background/medis.jpg'); /* Ganti dengan URL gambar latar belakang Anda */
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    /* Atur properti CSS lainnya sesuai kebutuhan */
+                }
+                
+                #invoice h1 {
+                    /* Atur CSS untuk elemen h1 di dalam #invoice */
+                    text-align: center;
+                    /* Atur properti CSS lainnya sesuai kebutuhan */
+                }
+                
+                #invoice img {
+                    /* Atur CSS untuk elemen img di dalam #invoice */
+                    border-radius: 10px;
+                    /* Atur properti CSS lainnya sesuai kebutuhan */
+                }
+                
+                #invoice .card {
+                    /* Atur CSS untuk elemen dengan kelas .card di dalam #invoice */
+                    background-color: #E3CA3E;
+                    border-radius: 10px;
+                    /* Atur properti CSS lainnya sesuai kebutuhan */
+                }
+                
+                #invoice .card-title {
+                    /* Atur CSS untuk elemen dengan kelas .card-title di dalam #invoice */
+                    display: flex;
+                    justify-content: center;
+                    color: white;
+                    /* Atur properti CSS lainnya sesuai kebutuhan */
+                }
+                
+                #invoice .card-body {
+                    /* Atur CSS untuk elemen dengan kelas .card-body di dalam #invoice */
+                    background-color: white;
+                    border-radius: 9px;
+                    /* Atur properti CSS lainnya sesuai kebutuhan */
+                }
+                
+                #invoice p {
+                    /* Atur CSS untuk elemen p di dalam #invoice */
+                    font-weight: bold;
+                    /* Atur properti CSS lainnya sesuai kebutuhan */
+                }
+        </style>
+
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" ></script>
     </head>
     <body>
+        
         <section>
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col mt-2 mb-2" style="display: flex; justify-content: center;">
-                        <h1>Kamera Kolposkopi</h1>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-8">
-                        <img src="{{ path }}" height="496" width="900" style="border-radius: 10px;">
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card ms-3 me-3" style="background-color: #E3CA3E;  border-radius: 10px">
-                            <div class="card-title" style="display: flex; justify-content: center; color: white ;">
-                                <h5 style="font-weight: bold;">Identitas Pasien</h5>
-                            </div>
-                            <div class="card-body ms-3 me-3 mb-3" style="background-color: white; border-radius: 9px;">
-                                <p style="font-weight: bold;" >Nama<span style="margin-left:80px;">: {{ nama_pasien }}</span></p>
-                                <p style="font-weight: bold;" >Umur<span style="margin-left:82px;">: {{ umur_pasien }} Tahun</span></p>
-                                <p style="font-weight: bold;" >Nomor Pasien<span style="margin-left:19px;">: {{ no_pasien }}</span></p>
-                            </div>
-                        </div>
-
-                        <div class="card ms-3 me-3 mt-5" style="background-color: #E3CA3E;  border-radius: 10px; height: auto;">
-                            <div class="card-title" style="display: flex; justify-content: center; color: white ;">
-                                <h5 style="font-weight: bold;">Diagnosa Pasien</h5>
-                            </div>
-                            <div class="card-body ms-3 me-3 mb-3" style="background-color: white; border-radius: 9px;">
-                                <p>{{ diagnosa }}</p>
-                            </div>
+                <div id="invoice">
+                    <div class="row">
+                        <div class="col mt-2 mb-2" style="display: flex; justify-content: center;">
+                            <h1>Kamera Kolposkopi</h1>
                         </div>
                     </div>
-                </div>
 
+                    <div class="row">
+                        <div class="col-md-8">
+                            <img src="{{ path }}" height="496" width="850" style="border-radius: 10px;">
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card ms-3 me-3" style="background-color: #E3CA3E;  border-radius: 10px">
+                                <div class="card-title" style="display: flex; justify-content: center; color: white ;">
+                                    <h5 style="font-weight: bold;">Identitas Pasien</h5>
+                                </div>
+                                <div class="card-body ms-3 me-3 mb-3" style="background-color: white; border-radius: 9px;">
+                                    <p style="font-weight: bold;" >Nama<span style="margin-left:80px;">: {{ nama_pasien }}</span></p>
+                                    <p style="font-weight: bold;" >Umur<span style="margin-left:82px;">: {{ umur_pasien }} Tahun</span></p>
+                                    <p style="font-weight: bold;" >Nomor Pasien<span style="margin-left:19px;">: {{ no_pasien }}</span></p>
+                                </div>
+                            </div>
+
+                            <div class="card ms-3 me-3 mt-5" style="background-color: #E3CA3E;  border-radius: 10px; height: auto;">
+                                <div class="card-title" style="display: flex; justify-content: center; color: white ;">
+                                    <h5 style="font-weight: bold;">Diagnosa Pasien</h5>
+                                </div>
+                                <div class="card-body ms-3 me-3 mb-3" style="background-color: white; border-radius: 9px;">
+                                    <p>{{ diagnosa }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
                 <div class="row mt-4">
                     <div class="col d-flex justify-content-end me-5">
-                        <form action="/generate_pdf">
-                            <button class="btn btn-success" style="color: white; font-weight: bold;" >Download</button>
-                        </form>
+                        
+                            <button class="btn btn-success" style="color: white; font-weight: bold;" onclick="downloadPDF()" >Download</button>
+                        
                         
                     </div>
                 </div>
@@ -62,6 +120,31 @@
             </div>
         </section>
     <script src="{{ url_for('static', filename='dist/js1/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ url_for('static', filename='dist/js1/bootstrap.min.js') }}"></script> 
+    <script src="{{ url_for('static', filename='dist/js1/bootstrap.min.js') }}"></script>
+    
+    <script>
+        function downloadPDF() {
+            // Mengambil elemen dengan ID 'invoice' yang akan diubah menjadi PDF
+            const invoice = document.getElementById('invoice');
+
+            // Opsi untuk konversi PDF
+            // Opsi untuk konversi PDF
+            const options = {
+                margin : 5, // Sesuaikan dengan margin yang Anda inginkan
+                filename: 'hasil_kolposkopi.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 1 }, // Sesuaikan dengan faktor skala yang sesuai
+                jsPDF: { unit: 'mm', format: [1366 / 3.78, 768 / 3.78], orientation: 'landscape', background: 'http://127.0.0.1:5500/static/background/medis.jpg' }
+            };
+
+
+            // Menggunakan HTML2PDF.js untuk mengonversi ke PDF
+            html2pdf().from(invoice).set(options).save();
+        }
+    </script>
+    
+
+   
+        
     </body>
 </html>
