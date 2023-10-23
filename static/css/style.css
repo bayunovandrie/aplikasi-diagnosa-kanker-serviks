@@ -1,0 +1,57 @@
+@media print{
+    body {
+        background-image: url('static/background/medis.jpg');
+        background-repeat: no-repeat;
+        background-size: cover; /* Sesuaikan dengan properti yang sesuai */
+    }
+
+    /* Atur tampilan elemen-elemen lainnya jika diperlukan */
+    #invoice {
+        /* Atur CSS untuk elemen #invoice di sini */
+        background-image: url('static/background/medis.jpg'); /* Ganti dengan URL gambar latar belakang Anda */
+        background-repeat: no-repeat;
+        background-size: cover;
+        /* Atur properti CSS lainnya sesuai kebutuhan */
+    }
+    
+    #invoice h1 {
+        /* Atur CSS untuk elemen h1 di dalam #invoice */
+        text-align: center;
+        /* Atur properti CSS lainnya sesuai kebutuhan */
+    }
+    
+    #invoice img {
+        /* Atur CSS untuk elemen img di dalam #invoice */
+        border-radius: 10px;
+        /* Atur properti CSS lainnya sesuai kebutuhan */
+    }
+    
+    #invoice .card {
+        /* Atur CSS untuk elemen dengan kelas .card di dalam #invoice */
+        background-color: #E3CA3E;
+        border-radius: 10px;
+        /* Atur properti CSS lainnya sesuai kebutuhan */
+    }
+    
+    #invoice .card-title {
+        /* Atur CSS untuk elemen dengan kelas .card-title di dalam #invoice */
+        display: flex;
+        justify-content: center;
+        color: white;
+        /* Atur properti CSS lainnya sesuai kebutuhan */
+    }
+    
+    #invoice .card-body {
+        /* Atur CSS untuk elemen dengan kelas .card-body di dalam #invoice */
+        background-color: white;
+        border-radius: 9px;
+        /* Atur properti CSS lainnya sesuai kebutuhan */
+    }
+    
+    #invoice p {
+        /* Atur CSS untuk elemen p di dalam #invoice */
+        font-weight: bold;
+        /* Atur properti CSS lainnya sesuai kebutuhan */
+    }
+    
+}

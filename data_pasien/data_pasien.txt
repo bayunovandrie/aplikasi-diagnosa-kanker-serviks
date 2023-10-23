@@ -1,0 +1,3 @@
+Nama Pasien: test, Usia: 21, No. Pasien: 2323, Foto Diagnosa: static\images\diagnosa\test.jpg, Diagnosa: test
+Nama Pasien: sdf, Usia: qwe, No. Pasien: wer, Foto Diagnosa: static\images\diagnosa\sdf.jpg, Diagnosa: wer
+Nama Pasien: bayu, Usia: 21, No. Pasien: 2222, Foto Diagnosa: static\images\diagnosa\bayu.jpg, Diagnosa: wesd

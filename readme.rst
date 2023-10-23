@@ -21,7 +21,9 @@ Flask
 cv2
 os
 datetime
-MySQL
+mediapipe
+numpy
+pdfkit
 
 ###################
 Versi Python

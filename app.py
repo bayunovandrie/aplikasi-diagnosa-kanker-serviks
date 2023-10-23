@@ -10,18 +10,10 @@ import sys
 import numpy as np
 from flask_mysqldb import MySQL
 import pdfkit
-
-
 from threading import Thread
 
 app = Flask(__name__)
 
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = ''
-app.config['MYSQL_DB'] = 'pasien'
-
-mysql = MySQL(app)
 
 global capture, rec_frame, grey, switch, neg, face, rec, out
 capture = 0
@@ -158,15 +150,17 @@ def hasil():
         path = request.form['path']
         diagnosa = request.form['diagnosa']
 
-        cur = mysql.connection.cursor()
-        cur.execute(
-            "INSERT INTO data_pasien (pasien_nama, pasien_usia, no_pasien, foto_diagnosa, diagnosa) VALUES (%s,%s,%s,%s,%s)", (
-                nama_pasien, umur_pasien, no_pasien, path, diagnosa)
-        )
-        mysql.connection.commit()
-        cur.close()
+        nama_file = "data_pasien/data_pasien.txt"
 
-        return render_template('akhir.html', path=path, nama_pasien=nama_pasien, umur_pasien=umur_pasien, no_pasien=no_pasien, diagnosa=diagnosa)
+        # Membuka file untuk menulis
+        with open(nama_file, 'a') as file:
+            # Format data sebagai string
+            data = f"Nama Pasien: {nama_pasien}, Usia: {umur_pasien}, No. Pasien: {no_pasien}, Foto Diagnosa: {path}, Diagnosa: {diagnosa}\n"
+
+            # Menulis data ke dalam file
+            file.write(data)
+
+    return render_template('akhir.html', path=path, nama_pasien=nama_pasien, umur_pasien=umur_pasien, no_pasien=no_pasien, diagnosa=diagnosa)
 
 
 @app.route('/lihat_data', methods=['POST'])
